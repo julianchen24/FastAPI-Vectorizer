@@ -7,7 +7,7 @@ from models import Customer
 
 def create_customer(customer: Customer, session: SessionDep):
     db_customer = Customer.model_validate(customer)
-    session.add(customer)
+    session.add(db_customer)
     session.commit()
     session.refresh(db_customer)
     return db_customer
