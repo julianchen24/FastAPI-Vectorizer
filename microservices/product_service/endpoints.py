@@ -30,7 +30,6 @@ def update_product_endpoint(product_id: int, product: Product, session: SessionD
 def delete_product_endpoint(product_id: int, session: SessionDep):
     return crud.delete_product(product_id, session)
 
-# ???
 @router.get("/")
 def read_all_products(session: SessionDep):
     products = session.exec(select(Product)).all()
