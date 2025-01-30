@@ -1,9 +1,10 @@
 from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, Query
-from sqlmodel import Session
-from microservices.Database import SessionDep
-from models import Invoice 
-import crud  
+from sqlmodel import Session, select
+from microservices.database import SessionDep
+from .database import SessionDep
+from .models import Invoice
+from . import crud
 
 router = APIRouter()
 
@@ -26,3 +27,8 @@ def update_invoice_endpoint(invoice_id: int, invoice: Invoice, session: SessionD
 @router.delete("/invoices/{invoice_id}")
 def delete_invoice_endpoint(invoice_id: int, session: SessionDep):
     return crud.delete_invoice(invoice_id, session)
+
+@router.get("/")
+def read_all_products(session: SessionDep):
+    products = session.exec(select(Invoice)).all()
+    return products
