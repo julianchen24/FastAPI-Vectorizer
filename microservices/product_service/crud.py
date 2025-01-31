@@ -2,9 +2,9 @@ from typing import Annotated
 
 from fastapi import Depends, FastAPI, HTTPException, Query
 from sqlmodel import Field, Session, SQLModel, create_engine, select
-from microservices.database import SessionDep, get_session
+from .database import SessionDep, get_session
 from .models import Product
-from .database import SessionDep
+
 
 def create_product(product: Product, session: SessionDep):
     db_product = Product.model_validate(product)

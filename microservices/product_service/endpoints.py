@@ -1,9 +1,8 @@
 from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlmodel import Session
-from microservices.database import SessionDep
-from .models import Product 
 from .database import SessionDep
+from .models import Product 
 from . import crud
 
 from sqlmodel import select

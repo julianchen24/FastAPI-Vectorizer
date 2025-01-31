@@ -1,9 +1,7 @@
 from typing import Annotated
-from .database import SessionDep
-
 from fastapi import Depends, FastAPI, HTTPException, Query
 from sqlmodel import Field, Session, SQLModel, create_engine, select
-from microservices.database import SessionDep, get_session
+from .database import SessionDep, get_session
 from .models import Customer
 
 def create_customer(customer: Customer, session: SessionDep):
