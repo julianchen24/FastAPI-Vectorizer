@@ -1,3 +1,4 @@
+# models.py
 from typing import Annotated
 
 from fastapi import Depends, FastAPI, HTTPException, Query
@@ -8,8 +9,8 @@ from .database import SessionDep
 class Invoice(SQLModel, table=True):
     invoice_id:int | None = Field(default=None, primary_key=True)
     # b/c table names are automatically converted to lowercase
-    customer_id:int = Field(foreign_key="customer.customer_id")
-    product_id:int = Field(foreign_key="product.product_id") 
+    customer_id:int 
+    product_id:int 
     units:int 
     amount:float = Field(index=True)
     # should i make this a string or actual time
