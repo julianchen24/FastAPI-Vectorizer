@@ -15,8 +15,8 @@ Each service is **containerized with Docker**, has **independent SQLite database
 ## **Installation**
 ### **1️⃣ Clone the Repository**
 ```sh
-git clone https://github.com/yourusername/fastapi-microservices-hub.git
-cd fastapi-microservices-hub
+git clone https://github.com/julianchen24/Microservice-Hub.git
+cd microservices-hub
 ```
 
 ### **2️⃣ Set Up Virtual Environment**
